@@ -1,5 +1,6 @@
 # hello-world
 Repo for testing random stuff
 
-Blah-blah **testing-testing** ... 3-dot test.
+Blah-blah **testing-testing** ...
+
 New line of text.
