@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns="http://www.loc.gov/METS/"
+    targetNamespace="http://www.loc.gov/METS/"
+    elementFormDefault="qualified">
+
+<xs:redefine schemaLocation="mets.xsd">
+  <xs:complexType name="structMapType">
+    <xs:complexContent>
+      <xs:restriction base="structMapType">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">structMapType: Complex Type for Structural Maps
+          The structural map (structMap) outlines a hierarchical structure for the original object being encoded, using a series of nested div elements.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="div" type="divType">
+            <xs:annotation>
+              <xs:documentation xml:lang="en"> 
+                The structural divisions of the hierarchical organization provided by a &lt;structMap&gt; are represented by division &lt;div&gt; elements, which can be nested to any depth. Each &lt;div&gt; element can represent either an intellectual (logical) division or a physical division. Every &lt;div&gt; node in the structural map hierarchy may be connected (via subsidiary &lt;mptr&gt; or &lt;fptr&gt; elements) to content files which represent that div's portion of the whole document. 
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="ID" type="xs:ID" use="optional">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">ID (ID/O): This attribute uniquely identifies the element within the METS document, and would allow the element to be referenced unambiguously from another element or document via an IDREF or an XPTR. For more information on using ID attributes for internal and external linking see Chapter 4 of the METS Primer.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="TYPE" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">TYPE (string/O): Identifies the type of structure represented by the &lt;structMap&gt;. For example, a &lt;structMap&gt; that represented a purely logical or intellectual structure could be assigned a TYPE value of “logical” whereas a &lt;structMap&gt; that represented a purely physical structure could be assigned a TYPE value of “physical”. However, the METS schema neither defines nor requires a common vocabulary for this attribute. A METS profile, however, may well constrain the values for the &lt;structMap&gt; TYPE.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="LABEL" type="xs:string" use="optional">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">LABEL (string/O): Describes the &lt;structMap&gt; to viewers of the METS document. This would be useful primarily where more than one &lt;structMap&gt; is provided for a single object. A descriptive LABEL value, in that case, could clarify to users the purpose of each of the available structMaps.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:anyAttribute namespace="##other" processContents="lax"/>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:redefine>
+</xs:schema>
